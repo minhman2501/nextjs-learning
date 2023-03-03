@@ -1,22 +1,38 @@
 {
-  "name": "nextlearn2",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.14.5",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3",
-    "next": "13.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.5"
-  }
+	"name": "nextlearn2",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint:fix": "next lint --fix",
+		"prettier": "prettier --check \"**/(*.tsx|*.ts|*.css|*.scss)\"",
+		"prettier:fix": "prettier --write \"**/(*.tsx|*.ts|*.css|*.scss)\""
+	},
+	"dependencies": {
+		"@types/node": "18.14.5",
+		"@types/react": "18.0.28",
+		"@types/react-dom": "18.0.11",
+		"clsx": "^1.2.1",
+		"eslint": "8.35.0",
+		"eslint-config-next": "13.2.3",
+		"next": "13.2.3",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"typescript": "4.9.5"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.54.0",
+		"@typescript-eslint/parser": "^5.54.0",
+		"autoprefixer": "^10.4.13",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-tailwindcss": "^3.10.1",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.4",
+		"prettier-plugin-tailwindcss": "^0.2.4",
+		"tailwindcss": "^3.2.7"
+	}
 }
