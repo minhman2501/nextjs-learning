@@ -23,10 +23,13 @@ export default function Tab({ path, item }: TabType) {
 	return (
 		<Link
 			href={href}
-			className={clsx('rounded-lg px-3 py-2 text-base font-medium', {
-				'bg-gray-300 text-black hover:bg-gray-700 hover:text-gray-100': !isActive,
-				'bg-red-800 text-white': isActive
-			})}
+			className={clsx(
+				'rounded-lg px-3 py-2 text-base font-medium transition-all duration-100',
+				{
+					'bg-gray-300 text-black hover:bg-gray-700 hover:text-gray-100': !isActive,
+					'bg-red-800 text-white': isActive
+				}
+			)}
 		>
 			{item.text}
 		</Link>

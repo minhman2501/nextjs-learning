@@ -10,7 +10,7 @@ export default function TabGroup({ path, items }: TabGroupType) {
 	return (
 		<div className="flex flex-wrap items-center gap-2">
 			{items.map((item) => (
-				<Tab path={path} item={item} />
+				<Tab key={path + item.id} path={path} item={item} />
 			))}
 		</div>
 	)

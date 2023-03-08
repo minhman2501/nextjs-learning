@@ -1,3 +1,3 @@
 export default async function NestedPage() {
-  return <h1>This is Nested page</h1>;
+	return <h1 className="text-gray-50">Home Children Page</h1>
 }

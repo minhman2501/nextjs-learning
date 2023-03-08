@@ -1,35 +1,45 @@
 import TabGroup from '@/components/TabGroup'
-import { fetchCategoryById } from '@/constants/value/category'
+import { fetchCategories, fetchCategoryById, fetchSubCategory } from '@/constants/value/category'
+import { Children } from '@/types'
 import { notFound } from 'next/navigation'
+import React from 'react'
 
-export default async function Layout({
+export default async function PageLayout({
 	children,
 	params
 }: {
 	children: React.ReactNode
-	params: { categorySlug: string }
+	params: {
+		categoryId: string
+	}
 }) {
-	const category = await fetchCategoryById(params.categorySlug)
+	const category = await fetchCategoryById(params.categoryId)
 	if (!category) notFound()
-
 	return (
-		<div className="space-y-9">
-			<div className="flex justify-between">
-				<TabGroup
-					path={`/layouts/${category.id}`}
-					items={[
-						{
-							text: 'All'
-						},
-						...category.items.map((x) => ({
-							text: x.name,
-							id: x.id
-						}))
-					]}
-				/>
+		<div className="space-y-5">
+			<div className="flex items-center ">
+				<h3 className="mr-5 text-lg text-white">{category.name} Category:</h3>
+				<nav>
+					<TabGroup
+						path={`/nestedlayout/${category.id}`}
+						items={[
+							{
+								text: 'All'
+							},
+							...category.items.map((subCategory) => ({
+								text: subCategory.name,
+								id: subCategory.id
+							}))
+						]}
+					/>
+				</nav>
 			</div>
-
-			<div>{children}</div>
+			<div className="space-y-5 rounded-xl border-2 border-dotted border-gray-400 p-9">
+				<span className="text-bold rounded-xl bg-pink-600 p-2 text-sm text-gray-50">
+					Children
+				</span>
+				{children}
+			</div>
 		</div>
 	)
 }
